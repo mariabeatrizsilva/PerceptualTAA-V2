@@ -234,13 +234,30 @@ def pairs_for_scene(manifest):
     return out
 
 
-def run_scene(scene_dir, scorers, overwrite, only=None):
+def flagged_configs(scene_dir):
+    """Renders whose existing CGVQM score is outside [0, 100] (or flagged as such)."""
+    jpath = os.path.join(scene_dir, "scores", "cgvqm.json")
+    if not os.path.exists(jpath):
+        return set()
+    out = set()
+    for e in json.load(open(jpath)).values():
+        if e.get("flag") or not (0.0 <= e.get("score", 50.0) <= 100.0):
+            out.add(e["config"])
+    return out
+
+
+def run_scene(scene_dir, scorers, overwrite, only=None, flagged=False):
     with open(os.path.join(scene_dir, "manifest.json")) as f:
         manifest = json.load(f)
     name = manifest["scene"]["name"]
     fps = manifest["render_settings"]["fps"]
     ref_jobs = {j["config"]: j for j in manifest["jobs"] if j["config"].startswith("ssaa16_")}
     pairs = pairs_for_scene(manifest)
+    if flagged:                                # re-score only renders whose score is out of range
+        only = flagged_configs(scene_dir)
+        print(f"\n{name}: {len(only)} render(s) with a score outside 0-100" + (": " + ", ".join(sorted(only)) if only else ""))
+        if not only:
+            return []
     if only:                                   # re-score just these renders (always overwritten)
         pairs = [(j, r) for j, r in pairs if j["config"] in only]
         missing = set(only) - {j["config"] for j, _ in pairs}
@@ -378,6 +395,8 @@ def main():
                     help="repo root containing src/cgvqm (default: this script's folder)")
     ap.add_argument("--no-sync", action="store_true", help="don't copy results into the repo's results/ folder")
     ap.add_argument("--overwrite", action="store_true", help="re-score renders that already have scores")
+    ap.add_argument("--flagged", action="store_true",
+                    help="re-score only renders whose current score is outside 0-100 (implies overwrite)")
     ap.add_argument("--only", nargs="+", metavar="CONFIG",
                     help="re-score only these renders, e.g. --only sp087_aw0.300_hp150_ns08_fs1.00 (implies overwrite)")
     ap.add_argument("--old-scores", nargs="*", default=[], metavar="SCENE=PATH",
@@ -401,7 +420,8 @@ def main():
 
     all_problems = {}
     for s in scenes:
-        p = run_scene(os.path.join(root, s), scorers, args.overwrite, set(args.only) if args.only else None)
+        p = run_scene(os.path.join(root, s), scorers, args.overwrite, set(args.only) if args.only else None,
+                      flagged=args.flagged)
         if p:
             all_problems[s] = len(p)
 
