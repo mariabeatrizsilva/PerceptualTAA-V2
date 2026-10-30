@@ -376,6 +376,7 @@ def main():
     ap.add_argument("--device", default=None, help="cuda / cpu (default: cuda if available)")
     ap.add_argument("--project-dir", default=None,
                     help="repo root containing src/cgvqm (default: this script's folder)")
+    ap.add_argument("--no-sync", action="store_true", help="don't copy results into the repo's results/ folder")
     ap.add_argument("--overwrite", action="store_true", help="re-score renders that already have scores")
     ap.add_argument("--only", nargs="+", metavar="CONFIG",
                     help="re-score only these renders, e.g. --only sp087_aw0.300_hp150_ns08_fs1.00 (implies overwrite)")
@@ -410,6 +411,13 @@ def main():
         legacy_comparison(root, scene, path)
 
     print("\nDone." + (f" Problems in: {all_problems}" if all_problems else " No problems."))
+    if not args.no_sync:
+        try:
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            import sync_results
+            sync_results.auto_sync(root, scenes)
+        except Exception as e:
+            print(f"(results not synced: {e})")
 
 
 if __name__ == "__main__":

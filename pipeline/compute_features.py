@@ -47,6 +47,7 @@ run); each render then takes ~10-30 s. Peak RAM ~5 GB at 1080p.
 """
 
 import os
+import sys
 import csv
 import json
 import math
@@ -393,6 +394,7 @@ def main():
     g.add_argument("--all", action="store_true")
     ap.add_argument("--flow-preset", default="medium", choices=list(DIS_PRESETS),
                     help="DIS optical flow quality/speed (default: medium)")
+    ap.add_argument("--no-sync", action="store_true", help="don't copy results into the repo's results/ folder")
     ap.add_argument("--overwrite", action="store_true")
     ap.add_argument("--limit", type=int, default=None, help="only the first N renders (quick test)")
     args = ap.parse_args()
@@ -406,6 +408,13 @@ def main():
         if p:
             bad[s] = len(p)
     print("\nDone." + (f" Problems in: {bad}" if bad else ""))
+    if not args.no_sync:
+        try:
+            sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+            import sync_results
+            sync_results.auto_sync(root, scenes)
+        except Exception as e:
+            print(f"(results not synced: {e})")
 
 
 if __name__ == "__main__":
