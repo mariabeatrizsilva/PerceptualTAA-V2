@@ -1,0 +1,12 @@
+# Python packages for the pipeline (Python 3.11+). FFmpeg must also be installed and on PATH.
+# PyTorch: on the GPU machine install the CUDA build first, following https://pytorch.org/get-started/locally/
+torch
+torchvision
+av              # used by CGVQM to read videos
+numpy
+pandas
+pillow
+opencv-python   # optical flow + image filters (compute_features, visualizers)
+matplotlib      # visualize_artifacts, scene_content_view
+plotly          # build_dashboard embeds its JS so the page works offline
+# optional: pycvvdp   # only for score_taa.py --metrics cvvdp
