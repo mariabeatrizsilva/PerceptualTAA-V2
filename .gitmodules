@@ -1,0 +1,3 @@
+[submodule "src/cgvqm"]
+	path = src/cgvqm
+	url = https://github.com/IntelLabs/CGVQM.git
