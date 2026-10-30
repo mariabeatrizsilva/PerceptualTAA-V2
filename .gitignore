@@ -1,0 +1,23 @@
+# ---- big data never goes in git (it lives in the data folder / external SSD)
+*.mkv
+*.mp4
+*.mov
+*.png
+*.exr
+*.npz
+*.npy
+data*/
+
+# but keep images you deliberately put in notes/
+!notes/**/*.png
+
+# ---- generated: rebuilt from results/ with build_dashboard.py (~6 MB each)
+dashboard.html
+**/visuals/
+
+# ---- Python / OS clutter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
