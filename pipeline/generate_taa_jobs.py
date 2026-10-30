@@ -93,9 +93,12 @@ SCENES = [
     {"name": "lightfoliage", "project": "NatureEnvs",
      "level": "/Game/Light_Foliage/Maps/Showcase",
      "sequence": "/Game/Light_Foliage/Flythrough"},
-    {"name": "subway-turn", "project": "SubwayTrain",
+    {"name": "subway-lookdown", "project": "SubwayTrain",
      "level": "/Game/SubwayTrain/Maps/Demonstration",
      "sequence": "/Game/SubwayTrain/Flythrough"},
+     {"name": "wildwest-bar", "project": "WildWest",
+          "level": "/Game/WildWest/Maps/WildWestVillage",
+          "sequence": "/Game/WildWest/Flythrough-Bar"},
 ]
 
 # ============================================================================

@@ -1,0 +1,2154 @@
+{
+  "dataset_version": "v2",
+  "scene": {
+    "name": "subway-turn",
+    "project": "SubwayTrain",
+    "level": "/Game/SubwayTrain/Maps/Demonstration",
+    "sequence": "/Game/SubwayTrain/Flythrough"
+  },
+  "created": "2026-10-30T14:38:12",
+  "render_settings": {
+    "output_resolution": [
+      1920,
+      1080
+    ],
+    "fps": 30,
+    "warmup_frames": 60,
+    "engine_version": "5.6.1-44394996+++UE5+Release-5.6"
+  },
+  "sweep": {
+    "sp": [
+      100,
+      87,
+      71,
+      50
+    ],
+    "aw": [
+      0.02,
+      0.04,
+      0.08,
+      0.12,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.7,
+      1.0
+    ],
+    "hp": [
+      100,
+      125,
+      150,
+      200
+    ]
+  },
+  "fixed": {
+    "ns": 8,
+    "fs": 1.0
+  },
+  "jobs": [
+    {
+      "kind": "reference",
+      "config": "ssaa16_sp100",
+      "params": {
+        "sp": 100,
+        "spatial_samples": 16,
+        "aa": "none"
+      },
+      "png_dir": "reference\\ssaa16_sp100",
+      "video": "videos\\reference\\ssaa16_sp100.mkv"
+    },
+    {
+      "kind": "aux",
+      "config": "motion_depth",
+      "params": {
+        "passes": [
+          "/MovieRenderPipeline/Materials/MovieRenderQueue_MotionVectors",
+          "/MovieRenderPipeline/Materials/MovieRenderQueue_WorldDepth"
+        ]
+      },
+      "png_dir": "aux\\motion_depth",
+      "video": null
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.020_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.02,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp100_aw0.020_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.020_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.020_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.02,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp100_aw0.020_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.020_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.020_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.02,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp100_aw0.020_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.020_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.020_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.02,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp100_aw0.020_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.020_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.040_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.04,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp100_aw0.040_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.040_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.040_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.04,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp100_aw0.040_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.040_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.040_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.04,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp100_aw0.040_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.040_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.040_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.04,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp100_aw0.040_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.040_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.080_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.08,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp100_aw0.080_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.080_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.080_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.08,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp100_aw0.080_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.080_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.080_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.08,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp100_aw0.080_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.080_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.080_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.08,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp100_aw0.080_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.080_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.120_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.12,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp100_aw0.120_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.120_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.120_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.12,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp100_aw0.120_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.120_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.120_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.12,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp100_aw0.120_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.120_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.120_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.12,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp100_aw0.120_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.120_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.200_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.2,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp100_aw0.200_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.200_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.200_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.2,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp100_aw0.200_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.200_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.200_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.2,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp100_aw0.200_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.200_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.200_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.2,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp100_aw0.200_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.200_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.300_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.3,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp100_aw0.300_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.300_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.300_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.3,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp100_aw0.300_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.300_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.300_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.3,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp100_aw0.300_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.300_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.300_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.3,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp100_aw0.300_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.300_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.400_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.4,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp100_aw0.400_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.400_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.400_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.4,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp100_aw0.400_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.400_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.400_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.4,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp100_aw0.400_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.400_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.400_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.4,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp100_aw0.400_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.400_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.500_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.5,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp100_aw0.500_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.500_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.500_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.5,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp100_aw0.500_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.500_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.500_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.5,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp100_aw0.500_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.500_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.500_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.5,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp100_aw0.500_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.500_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.700_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.7,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp100_aw0.700_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.700_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.700_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.7,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp100_aw0.700_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.700_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.700_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.7,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp100_aw0.700_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.700_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw0.700_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 0.7,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp100_aw0.700_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw0.700_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw1.000_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 1.0,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp100_aw1.000_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw1.000_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw1.000_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 1.0,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp100_aw1.000_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw1.000_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw1.000_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 1.0,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp100_aw1.000_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw1.000_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp100_aw1.000_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 100,
+        "aw": 1.0,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp100_aw1.000_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp100_aw1.000_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.020_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.02,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp087_aw0.020_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.020_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.020_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.02,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp087_aw0.020_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.020_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.020_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.02,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp087_aw0.020_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.020_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.020_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.02,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp087_aw0.020_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.020_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.040_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.04,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp087_aw0.040_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.040_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.040_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.04,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp087_aw0.040_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.040_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.040_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.04,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp087_aw0.040_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.040_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.040_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.04,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp087_aw0.040_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.040_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.080_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.08,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp087_aw0.080_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.080_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.080_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.08,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp087_aw0.080_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.080_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.080_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.08,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp087_aw0.080_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.080_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.080_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.08,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp087_aw0.080_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.080_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.120_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.12,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp087_aw0.120_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.120_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.120_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.12,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp087_aw0.120_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.120_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.120_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.12,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp087_aw0.120_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.120_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.120_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.12,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp087_aw0.120_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.120_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.200_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.2,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp087_aw0.200_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.200_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.200_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.2,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp087_aw0.200_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.200_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.200_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.2,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp087_aw0.200_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.200_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.200_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.2,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp087_aw0.200_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.200_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.300_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.3,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp087_aw0.300_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.300_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.300_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.3,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp087_aw0.300_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.300_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.300_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.3,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp087_aw0.300_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.300_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.300_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.3,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp087_aw0.300_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.300_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.400_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.4,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp087_aw0.400_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.400_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.400_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.4,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp087_aw0.400_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.400_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.400_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.4,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp087_aw0.400_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.400_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.400_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.4,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp087_aw0.400_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.400_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.500_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.5,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp087_aw0.500_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.500_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.500_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.5,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp087_aw0.500_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.500_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.500_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.5,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp087_aw0.500_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.500_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.500_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.5,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp087_aw0.500_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.500_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.700_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.7,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp087_aw0.700_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.700_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.700_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.7,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp087_aw0.700_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.700_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.700_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.7,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp087_aw0.700_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.700_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw0.700_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 0.7,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp087_aw0.700_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw0.700_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw1.000_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 1.0,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp087_aw1.000_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw1.000_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw1.000_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 1.0,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp087_aw1.000_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw1.000_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw1.000_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 1.0,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp087_aw1.000_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw1.000_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp087_aw1.000_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 87,
+        "aw": 1.0,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp087_aw1.000_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp087_aw1.000_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.020_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.02,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp071_aw0.020_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.020_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.020_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.02,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp071_aw0.020_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.020_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.020_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.02,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp071_aw0.020_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.020_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.020_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.02,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp071_aw0.020_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.020_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.040_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.04,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp071_aw0.040_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.040_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.040_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.04,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp071_aw0.040_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.040_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.040_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.04,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp071_aw0.040_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.040_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.040_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.04,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp071_aw0.040_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.040_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.080_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.08,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp071_aw0.080_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.080_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.080_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.08,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp071_aw0.080_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.080_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.080_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.08,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp071_aw0.080_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.080_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.080_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.08,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp071_aw0.080_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.080_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.120_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.12,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp071_aw0.120_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.120_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.120_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.12,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp071_aw0.120_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.120_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.120_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.12,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp071_aw0.120_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.120_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.120_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.12,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp071_aw0.120_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.120_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.200_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.2,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp071_aw0.200_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.200_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.200_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.2,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp071_aw0.200_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.200_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.200_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.2,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp071_aw0.200_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.200_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.200_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.2,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp071_aw0.200_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.200_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.300_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.3,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp071_aw0.300_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.300_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.300_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.3,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp071_aw0.300_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.300_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.300_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.3,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp071_aw0.300_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.300_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.300_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.3,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp071_aw0.300_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.300_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.400_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.4,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp071_aw0.400_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.400_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.400_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.4,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp071_aw0.400_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.400_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.400_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.4,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp071_aw0.400_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.400_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.400_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.4,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp071_aw0.400_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.400_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.500_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.5,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp071_aw0.500_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.500_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.500_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.5,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp071_aw0.500_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.500_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.500_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.5,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp071_aw0.500_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.500_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.500_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.5,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp071_aw0.500_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.500_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.700_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.7,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp071_aw0.700_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.700_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.700_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.7,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp071_aw0.700_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.700_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.700_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.7,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp071_aw0.700_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.700_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw0.700_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 0.7,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp071_aw0.700_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw0.700_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw1.000_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 1.0,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp071_aw1.000_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw1.000_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw1.000_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 1.0,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp071_aw1.000_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw1.000_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw1.000_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 1.0,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp071_aw1.000_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw1.000_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp071_aw1.000_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 71,
+        "aw": 1.0,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp071_aw1.000_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp071_aw1.000_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.020_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.02,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp050_aw0.020_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.020_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.020_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.02,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp050_aw0.020_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.020_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.020_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.02,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp050_aw0.020_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.020_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.020_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.02,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp050_aw0.020_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.020_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.040_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.04,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp050_aw0.040_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.040_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.040_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.04,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp050_aw0.040_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.040_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.040_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.04,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp050_aw0.040_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.040_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.040_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.04,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp050_aw0.040_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.040_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.080_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.08,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp050_aw0.080_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.080_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.080_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.08,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp050_aw0.080_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.080_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.080_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.08,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp050_aw0.080_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.080_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.080_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.08,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp050_aw0.080_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.080_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.120_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.12,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp050_aw0.120_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.120_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.120_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.12,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp050_aw0.120_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.120_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.120_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.12,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp050_aw0.120_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.120_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.120_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.12,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp050_aw0.120_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.120_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.200_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.2,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp050_aw0.200_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.200_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.200_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.2,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp050_aw0.200_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.200_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.200_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.2,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp050_aw0.200_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.200_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.200_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.2,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp050_aw0.200_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.200_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.300_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.3,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp050_aw0.300_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.300_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.300_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.3,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp050_aw0.300_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.300_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.300_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.3,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp050_aw0.300_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.300_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.300_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.3,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp050_aw0.300_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.300_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.400_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.4,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp050_aw0.400_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.400_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.400_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.4,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp050_aw0.400_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.400_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.400_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.4,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp050_aw0.400_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.400_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.400_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.4,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp050_aw0.400_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.400_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.500_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.5,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp050_aw0.500_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.500_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.500_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.5,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp050_aw0.500_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.500_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.500_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.5,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp050_aw0.500_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.500_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.500_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.5,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp050_aw0.500_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.500_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.700_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.7,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp050_aw0.700_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.700_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.700_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.7,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp050_aw0.700_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.700_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.700_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.7,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp050_aw0.700_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.700_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw0.700_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 0.7,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp050_aw0.700_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw0.700_hp200_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw1.000_hp100_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 1.0,
+        "hp": 100
+      },
+      "png_dir": "taa\\sp050_aw1.000_hp100_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw1.000_hp100_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw1.000_hp125_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 1.0,
+        "hp": 125
+      },
+      "png_dir": "taa\\sp050_aw1.000_hp125_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw1.000_hp125_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw1.000_hp150_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 1.0,
+        "hp": 150
+      },
+      "png_dir": "taa\\sp050_aw1.000_hp150_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw1.000_hp150_ns08_fs1.00.mkv"
+    },
+    {
+      "kind": "taa",
+      "config": "sp050_aw1.000_hp200_ns08_fs1.00",
+      "params": {
+        "ns": 8,
+        "fs": 1.0,
+        "sp": 50,
+        "aw": 1.0,
+        "hp": 200
+      },
+      "png_dir": "taa\\sp050_aw1.000_hp200_ns08_fs1.00",
+      "video": "videos\\taa\\sp050_aw1.000_hp200_ns08_fs1.00.mkv"
+    }
+  ]
+}
