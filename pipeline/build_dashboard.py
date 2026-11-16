@@ -31,9 +31,13 @@ USAGE
   python build_dashboard.py --root ~/Documents/PerceptualTAA/data_v2
   python build_dashboard.py --root ... --old-scores oldmine=tests/oldmine/scores.json
   then open data_v2/dashboard.html in a browser
+
+  Public copy for GitHub Pages (no local paths, Plotly from CDN, /*PRIVATE: ... */ blocks removed):
+  python pipeline/build_dashboard.py --root results --public --out docs/index.html
 """
 
 import os
+import re
 import json
 import glob
 import argparse
@@ -286,7 +290,7 @@ def legacy_rows(scores, old_scores):
 # MAIN
 # ============================================================================
 
-def build(root, out, old_scores_args):
+def build(root, out, old_scores_args, public=False):
     scores = load_scores(root)
     patches = load_patches(root)
     rt = render_table(scores, patches)
@@ -326,7 +330,7 @@ def build(root, out, old_scores_args):
 
     data = {
         "generated": datetime.datetime.now().strftime("%Y-%m-%d %H:%M"),
-        "root": root,
+        "root": "" if public else root,
         "default": {"aw": DEFAULT_AW, "hp": DEFAULT_HP},
         "scenes": scenes,
         "metrics": metrics,
@@ -345,6 +349,8 @@ def build(root, out, old_scores_args):
     }
 
     try:
+        if public:
+            raise ImportError("public build: load Plotly from the CDN")
         import plotly
         js_path = os.path.join(os.path.dirname(plotly.__file__), "package_data", "plotly.min.js")
         plotly_tag = "<script>" + open(js_path, encoding="utf-8").read() + "</script>"
@@ -356,7 +362,12 @@ def build(root, out, old_scores_args):
     tmpl_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "dashboard_template.html")
     html = open(tmpl_path, encoding="utf-8").read()
     payload = json.dumps(data, separators=(",", ":")).replace("</", "<\\/")
+    if public:
+        # whole-line PRIVATE blocks (with their line break), then inline ones
+        html = re.sub(r"(?m)^[ \t]*/\*PRIVATE:[\s\S]*?\*/[ \t]*\n", "", html)
+        html = re.sub(r"[ \t]*/\*PRIVATE:[\s\S]*?\*/", "", html)
     html = html.replace("<!--PLOTLY-->", plotly_tag).replace("/*DATA*/null", payload)
+    os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True)
     with open(out, "w", encoding="utf-8") as f:
         f.write(html)
     print(f"Scenes: {', '.join(scenes) or '(none yet)'}")
@@ -371,9 +382,12 @@ def main():
     ap.add_argument("--out", default=None, help="output HTML (default: {root}/dashboard.html)")
     ap.add_argument("--old-scores", nargs="*", default=[], metavar="SCENE=PATH",
                     help="old factorial scores.json per scene, for the legacy check table")
+    ap.add_argument("--public", action="store_true",
+                    help="build for the web: omit the local data path, load Plotly from the CDN, "
+                         "and drop /*PRIVATE: ... */ blocks from the template")
     args = ap.parse_args()
     root = os.path.expanduser(args.root)
-    build(root, args.out or os.path.join(root, "dashboard.html"), args.old_scores)
+    build(root, args.out or os.path.join(root, "dashboard.html"), args.old_scores, public=args.public)
 
 
 if __name__ == "__main__":

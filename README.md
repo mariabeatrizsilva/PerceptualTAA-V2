@@ -4,7 +4,9 @@ How do Temporal Anti-Aliasing (TAA) settings affect perceived video quality, and
 
 Scenes are rendered in Unreal Engine 5.6 over a full grid of TAA settings and resolutions. Each render is scored against a 16× supersampled reference with the CGVQM video quality metric. The results are then analysed per patch (¼ × ¼ of the frame, over 30 frames) against content features (motion, detail, newly visible pixels) and artifact measures (flicker, detail loss).
 
-This is the revision of our HPG submission. The submitted version is tagged `hpg-submission` in the old repository.
+**Interactive dashboard:** [mariabeatrizsilva.github.io/PerceptualTAA-V2](https://mariabeatrizsilva.github.io/PerceptualTAA-V2/) (rebuild with `python pipeline/build_dashboard.py --root results --public --out docs/index.html`).
+
+<!-- This is the revision of our HPG submission. The submitted version is tagged `hpg-submission` in the old repository. -->
 
 ---
 
@@ -15,9 +17,10 @@ PerceptualTAA-V2/
   pipeline/                 all scripts (run order below)
   src/cgvqm/                CGVQM metric: git submodule of IntelLabs/CGVQM (code + weights)
   results/                  small outputs, synced from the data folder and committed
-  notes/                    decisions, render log, reviewer-response tracking
+  notes/                    decisions, render log
   requirements.txt
 ```
+<!-- notes/ also holds reviewer-response tracking. -->
 
 **Videos and frames are not in this repo.** They live in a data folder on the render machine, or on the external SSD (see [Data](#data)).
 
@@ -30,7 +33,8 @@ PerceptualTAA-V2/
 | `results/<scene>/scores/cgvqm.json` (+ `cvvdp.json`) | `visuals/` (images / videos from the visualizers) |
 | `results/<scene>/features/content.csv`, `content_frames.csv`, `patch_table.csv` | `dashboard.html` (rebuild it any time) |
 | `results/scores_all.csv` | |
-| `results/v1_hpg/`: the HPG (v1) scores, archived, kept separate | |
+
+<!-- | `results/v1_hpg/`: the HPG (v1) scores, archived, kept separate | | -->
 
 About 2 MB per scene. **`score_taa.py` and `compute_features.py` copy their results into `results/` automatically** when they finish, as long as they're run from this repo's `pipeline/` folder. Only run `pipeline/sync_results.py` by hand if you used `--no-sync`, or for data scored before auto-sync existed.
 
@@ -38,7 +42,7 @@ About 2 MB per scene. **`score_taa.py` and `compute_features.py` copy their resu
 - **Render PC, after a session:** `git add results && git commit -m "Results: <what changed>" && git push`
 - **Any other computer:** `git pull`, then `python pipeline/build_dashboard.py --root results`
 
-`results/v1_hpg/` holds the v1 pipeline's scores: one parameter at a time, no warm-up, a different reference setup. Use it for comparison only; don't merge it with v2.
+<!-- `results/v1_hpg/` holds the v1 pipeline's scores: one parameter at a time, no warm-up, a different reference setup. Use it for comparison only; don't merge it with v2. -->
 
 ---
 
@@ -171,7 +175,8 @@ Dashboard tabs:
 | Output | 1920×1080, 30 fps, 150 frames, 60 warm-up frames (so the TAA history is filled before recording) |
 | Metric | CGVQM-2 ([IntelLabs/CGVQM](https://github.com/IntelLabs/CGVQM); commit pinned by the submodule) |
 
-Changes from the HPG version:
+<!-- Changes from the HPG version: -->
+Changes from the first version of the study:
 - the reference is always at 100% (the old factorial test used 87%)
 - warm-up frames before recording
 - alpha × history × resolution as a full grid, instead of one parameter at a time

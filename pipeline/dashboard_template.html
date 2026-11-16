@@ -209,7 +209,7 @@ function aggregate(rows, key, centre) {
 // ---------------------------------------------------------------- tabs
 const TABS = [["overview", "Overview"], ["scenes", "Scenes"], ["params", "Parameters"], ["trade", "Trade-offs"], ["artifacts", "Artifacts"], ["content", "Content"], ["inter", "Interactions"], ["metrics", "Metrics"]];
 function initChrome() {
-  $("meta").textContent = `Built ${DATA.generated} · ${DATA.scenes.length} scene(s) · ${R.length} renders · ${DATA.root}`;
+  $("meta").textContent = `Built ${DATA.generated} · ${DATA.scenes.length} scene(s) · ${R.length} renders` + (DATA.root ? ` · ${DATA.root}` : "");
   $("f-scene").innerHTML = `<option value="__all__">All scenes</option>` + DATA.scenes.map(s => `<option>${s}</option>`).join("");
   $("f-metric").innerHTML = (DATA.metrics.length ? DATA.metrics : ["cgvqm"]).map(m => `<option value="${m}">${metricName(m)}</option>`).join("");
   $("tabs").innerHTML = TABS.map(([k, t]) => `<button role="tab" data-t="${k}" aria-selected="${k === S.tab}">${t}</button>`).join("");
@@ -254,11 +254,13 @@ function rOverview() {
     table([{ h: "Scene", k: "scene", l: 1 }, { h: "Config", k: "config", l: 1 }, { h: "CGVQM", f: r => fmt(r.cgvqm) },
       { h: "Off neighbours by", f: r => fmt(r.neighbor_dev) }, { h: "Why", f: r => r.flag ? "⚠ out of range" : "⚠ outlier", cls: () => "warn", l: 1 }],
       bad.sort((a, b) => Math.abs(b.neighbor_dev || 99) - Math.abs(a.neighbor_dev || 99))));
+  /*PRIVATE: legacy check against the HPG (v1) scores, hidden for now
   const leg = DATA.legacy.filter(r => scenesSel().includes(r.scene));
   if (leg.length) h += card("Legacy check", "Old-factorial settings re-rendered. <b>Old</b> vs <b>new @87% ref</b> should match closely if the pipeline reproduces the old results. <b>New @100% ref</b> shows the effect of the corrected reference.",
     table([{ h: "Scene", k: "scene", l: 1 }, { h: "Config", k: "config", l: 1 }, { h: "Old", f: r => fmt(r.old, 3) },
       { h: "New @87% ref", f: r => fmt(r.new_ref87, 3) }, { h: "Δ (new−old)", f: r => r.old === null ? "–" : fmt(r.new_ref87 - r.old, 3) },
       { h: "New @100% ref", f: r => fmt(r.new_ref100, 3) }], leg));
+  */
   el.innerHTML = h;
 }
 
@@ -495,7 +497,7 @@ function rContent() {
     layout({ xaxis: ax("Alpha weight", { type: "category" }), yaxis: ax("Patches where this α is best"), bargap: 0.3, showlegend: false }));
 }
 
-// ---------------------------------------------------------------- interactions (R1)
+// ---------------------------------------------------------------- interactions /*PRIVATE: (R1) */
 const IN = { feat: "motion_mean", feat2: "detail_hf", y: "q", hp: DATA.default.hp, hpCmp: null };
 const fmtF = (v) => v === null || v === undefined ? "–" : (Math.abs(v) < 1 ? v.toFixed(3) : Math.abs(v) < 100 ? v.toFixed(1) : v.toFixed(0));
 const YI = { q: "Relative quality", f: "Flicker (luma levels / frame)", h: "Detail ratio (render ÷ reference)" };
@@ -540,9 +542,11 @@ function rInter() {
     `<div class="local">${sel("i-feat", "Content feature", feats.map(k => ({ v: k, t: fn(k) })), IN.feat)}
       ${sel("i-feat2", "Second feature", feats.map(k => ({ v: k, t: fn(k) })), IN.feat2)}
       ${sel("i-hp", "History", hps.map(x => ({ v: x, t: x + "%" })), IN.hp)}</div>` +
-    `<p class="sub" style="color:var(--ink-2);font-size:13px;margin:0 0 12px;max-width:90ch">Unit = one patch (¼ × ¼ of the frame) over one 30-frame clip, the finer-grained measurement R1 asked for. Patches are split into thirds by the content feature, using only the selected scenes. ${sc.length > 1 ? `${sc.length} scenes pooled; each patch's curve is compared with itself, so scene baselines drop out.` : ""}</p>` +
+    /*PRIVATE: original: "...over one 30-frame clip, the finer-grained measurement R1 asked for." */
+    `<p class="sub" style="color:var(--ink-2);font-size:13px;margin:0 0 12px;max-width:90ch">Unit = one patch (¼ × ¼ of the frame) over one 30-frame clip. Patches are split into thirds by the content feature, using only the selected scenes. ${sc.length > 1 ? `${sc.length} scenes pooled; each patch's curve is compared with itself, so scene baselines drop out.` : ""}</p>` +
     card(`1 · Does ${fn(IN.feat).toLowerCase()} change how alpha matters?`,
-      `Alpha curves averaged within each third of patches, one panel per resolution. <b>Relative quality</b> = each patch's CGVQM minus its own average over α, so patches that are simply easier or harder don't skew the curves. Rings = the peak of each quality curve. If the peaks move between groups, the best alpha depends on this content property (the alpha × content interaction in R1's model). Switch to flicker or detail ratio to see <i>why</i>.`,
+      /*PRIVATE: original: "...the best alpha depends on this content property (the alpha × content interaction in R1's model)." */
+      `Alpha curves averaged within each third of patches, one panel per resolution. <b>Relative quality</b> = each patch's CGVQM minus its own average over α, so patches that are simply easier or harder don't skew the curves. Rings = the peak of each quality curve. If the peaks move between groups, the best alpha depends on this content property. Switch to flicker or detail ratio to see <i>why</i>.`,
       `<div class="local">${sel("i-y", "Show", Object.entries(YI).map(([v, t]) => ({ v, t })), IN.y)}</div><div id="i-curves" class="chart" style="height:${h}px"></div>`) +
     card(`2 · Best alpha for each ${fn(IN.feat).toLowerCase()} × ${fn(IN.feat2).toLowerCase()} combination`,
       `Each cell = patches in that combination of thirds; the label is the alpha with the highest average quality there (n = patches). Different values across the grid = both features matter, and how.`,
@@ -553,7 +557,8 @@ function rInter() {
     card(`4 · How much would choosing alpha by content gain?`,
       (sc.length > 1 ? `<b>Held-out test:</b> each rule is learned on the other scenes and scored on the scene left out, repeated for every scene. ` :
         `<b>In-sample only</b> (one scene selected): rules are learned and scored on the same patches, so this is optimistic. Select "All scenes" for the held-out test. `) +
-      `Bars = average patch-quality gain over UE's default α = ${DATA.default.aw}, at history ${IN.hp}%. If "α by ${fn(IN.feat).toLowerCase()} × ${fn(IN.feat2).toLowerCase()}" beats "one α per resolution", content-adaptive alpha adds value beyond a resolution lookup table (R2's point). The per-patch best is an upper bound no real rule can reach.`,
+      /*PRIVATE: original: "...adds value beyond a resolution lookup table (R2's point)." */
+      `Bars = average patch-quality gain over UE's default α = ${DATA.default.aw}, at history ${IN.hp}%. If "α by ${fn(IN.feat).toLowerCase()} × ${fn(IN.feat2).toLowerCase()}" beats "one α per resolution", content-adaptive alpha adds value beyond a resolution lookup table. The per-patch best is an upper bound no real rule can reach.`,
       `<div id="i-gain" class="chart" style="height:340px"></div><div id="i-gain-t"></div>`);
 
   [["i-feat", v => IN.feat = v], ["i-feat2", v => IN.feat2 = v], ["i-hp", v => IN.hp = +v], ["i-y", v => IN.y = v], ["i-hpc", v => IN.hpCmp = +v]]
@@ -675,7 +680,8 @@ function rScenes() {
     ["motion_mean", "detail_hf", "disocc_frac"].forEach(k => { const v = c.map(x => x[k]); r[k + "_med"] = pct(v, 0.5); r[k + "_p90"] = pct(v, 0.9); }); return r; });
   const top = ["motion_mean", "detail_hf", "disocc_frac"].filter(k => feats.includes(k));
   el.innerHTML =
-    card("How the scenes differ in content", "One box per scene: the spread of patch values (box = middle half, line = median, whiskers = typical range). Shows how much of the content range the scene set covers, the representativeness question R2 raised. Pick a scene in the filter to highlight it.",
+    /*PRIVATE: original: "...how much of the content range the scene set covers, the representativeness question R2 raised." */
+    card("How the scenes differ in content", "One box per scene: the spread of patch values (box = middle half, line = median, whiskers = typical range). Shows how much of the content range the scene set covers. Pick a scene in the filter to highlight it.",
       `<div id="s-box" class="chart" style="height:${Math.max(260, 26 * scenes.length + 90) * (narrow() ? top.length : 1)}px"></div>`) +
     card("Content over time", "Whole-frame values for every frame (one line per scene; dotted lines = 30-frame clip boundaries): <b>Motion</b> in px/frame, <b>Detail</b> = high-frequency energy (log scale), <b>New px %</b> = share of newly visible pixels" + (pick ? ", <b>Error</b> = CGVQM per-frame error (lower is better)" : "") + ". Separate charts because the scales differ. " +
       (pick ? "The last chart is CGVQM's per-frame error for two settings of this scene, so you can see whether error rises when motion or newly visible area does." : "Pick a single scene in the filter to add CGVQM's per-frame error for two settings."),
